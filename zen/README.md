@@ -1,6 +1,6 @@
 # Zen Browser Configs
 
-Uses Zen Browser [v1.14.5b](https://github.com/zen-browser/desktop/releases/tag/1.14.5b), Sinze Mods [v2.1.5](https://github.com/CosmoCreeper/Sine/releases/tag/v2.1.5)
+Uses Zen Browser [v1.14.5b](https://github.com/zen-browser/desktop/releases/tag/1.14.5b), Sine Mods [v2.1.5](https://github.com/CosmoCreeper/Sine/releases/tag/v2.1.5)
 
 ### Installing
 
