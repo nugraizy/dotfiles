@@ -1,0 +1,35 @@
+/* --- Root Variables --- */
+
+:root {
+	/* Mica Inspired Colors */
+	--background-color: rgba(30, 34, 40, 0.7);
+	--foreground-color: rgb(237, 238, 240);
+	--accent-color: #0078d4;
+	--border-color: rgb(53, 59, 69);
+	--icon-color: rgb(169, 174, 184);
+	--icon-hover: rgba(169, 174, 184, 0.8);
+	--hover-color: rgba(93, 114, 135, 0.12);
+	--active-color: rgb(93, 114, 135);
+	--inactive-color: rgba(93, 114, 135, 0.5);
+	--blurs: rgba(31, 39, 49, 0.1);
+	--blurs-apps: rgba(31, 39, 49, 0.4);
+	--white-blurs: rgba(255, 255, 255, 0.2);
+
+	/* Catppuccin Mocha Colors */
+	--rosewater: #f5e0dc;
+	--flamingo: #f2cdcd;
+	--pink: #f5c2e7;
+	--mauve: #cba6f7;
+	--red: #f38ba8;
+	--red-alpha: rgba(243, 139, 168, 0.1);
+	--maroon: #eba0ac;
+	--peach: #fab387;
+	--yellow: #f9e2af;
+	--green: #a6e3a1;
+	--green-alpha: rgba(166, 227, 161, 0.096);
+	--teal: #94e2d5;
+	--sky: #89dceb;
+	--sapphire: #74c7ec;
+	--blue: #89b4fa;
+	--lavender: #b4befe;
+}

@@ -1,0 +1,655 @@
+/* --- Menus, Popups, and Sliders --- */
+
+/* Generic Slider Styles */
+.volume-slider,
+.brightness-slider,
+.media-menu .progress-slider {
+	height: 10px;
+	margin: 5px 4px;
+	border-radius: 3px;
+	border: none;
+}
+.volume-slider::groove,
+.brightness-slider::groove,
+.media-menu .progress-slider::groove {
+	background-color: var(--inactive-color);
+	border-radius: 2px;
+	height: 4px;
+	margin: 4px 0;
+}
+.audio-menu .volume-slider::sub-page,
+.brightness-menu .brightness-slider::sub-page,
+.media-menu .progress-slider::sub-page {
+	background: var(--mauve);
+	border-radius: 3px;
+	height: 4px;
+}
+
+/* Audio Menu */
+.audio-menu {
+	background-color: var(--blurs);
+}
+.audio-container .device {
+	background-color: transparent;
+	border: none;
+	padding: 6px 8px 6px 4px;
+	margin: 2px 0;
+	font-size: 12px;
+	border-radius: 4px;
+}
+.audio-container .device.selected {
+	background-color: rgba(255, 255, 255, 0.085);
+}
+.audio-container .device:hover {
+	background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Brightness Menu */
+.brightness-menu {
+	background-color: rgba(17, 17, 27, 0.4);
+}
+
+/* Calendar Menu */
+.calendar {
+	background-color: var(--blurs);
+}
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+	background-color: transparent;
+	color: rgb(255, 255, 255);
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+.calendar .calendar-table::item:selected {
+	color: var(--crust); /* Note: --crust is not defined in variables */
+	background-color: var(--lavender);
+	border-radius: 12px;
+}
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+	font-size: 16px;
+	font-weight: 700;
+	min-width: 180px;
+	max-width: 180px;
+}
+.calendar .day-label {
+	margin-top: 20px;
+	color: var(--maroon);
+}
+.calendar .month-label {
+	color: var(--green);
+	font-weight: normal;
+}
+.calendar .date-label {
+	color: var(--white-blurs);
+	font-size: 88px;
+	font-weight: 900;
+	margin-top: -20px;
+}
+
+/* Disk Group Menu */
+.disk-group {
+	background-color: var(--blurs);
+}
+.disk-group-row {
+	min-width: 220px;
+	max-width: 220px;
+	max-height: 40px;
+	margin: 0;
+	padding: 0;
+	border-radius: 6px;
+	border: 1px solid transparent;
+}
+.disk-group-row:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.disk-group-label {
+	font-size: 10px;
+}
+.disk-group-label-size {
+	font-size: 10px;
+	color: #666879;
+}
+.disk-group-label-bar {
+	background-color: rgba(137, 180, 250, 0.1);
+	border-radius: 4px;
+	border: none;
+}
+.disk-group-label-bar::chunk {
+	background-color: var(--mauve);
+	border-radius: 4px;
+}
+
+/* Github Menu */
+.github-menu {
+	background-color: var(--blurs);
+	max-height: 500px;
+	min-height: 500px;
+	min-width: 420px;
+}
+.github-menu .header,
+.github-menu .footer {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: rgba(17, 17, 27, 0.4);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.github-menu .header {
+	font-size: 15px;
+	font-weight: 400;
+	padding: 8px;
+	color: white;
+}
+.github-menu .footer {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	font-size: 12px;
+	padding: 4px 8px 6px 8px;
+	color: #9399b2;
+}
+.github-menu .contents {
+	background-color: var(--blurs);
+}
+.github-menu .item {
+	min-height: 40px;
+	padding: 6px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+.github-menu .item:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+	border-bottom-color: transparent;
+}
+.github-menu .item .title,
+.github-menu .item .description {
+	color: #9399b2;
+	font-family: 'Segoe UI';
+}
+.github-menu .item .title {
+	font-size: 14px;
+	font-weight: 600;
+}
+.github-menu .item .description {
+	font-size: 12px;
+	font-weight: 500;
+}
+.github-menu .item.new .title,
+.github-menu .item.new .description {
+	color: #ffffff;
+}
+.github-menu .item .icon {
+	font-size: 16px;
+	padding: 0 4px 0 8px;
+	color: #9399b2;
+}
+.github-menu .item.new .icon {
+	color: #3fb950;
+}
+
+/* Home Menu */
+.home-menu {
+	background-color: var(--blurs);
+}
+.home-menu .menu-item {
+	padding: 6px 48px 7px 16px;
+	font-size: 12px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--text); /* Note: --text is not defined */
+	font-weight: 600;
+}
+.home-menu .menu-item:hover {
+	background-color: rgba(128, 130, 158, 0.15);
+	color: #fff;
+}
+.home-menu .separator {
+	max-height: 1px;
+	background-color: rgba(128, 130, 158, 0.3);
+}
+
+/* Media Menu */
+.media-menu {
+	min-width: 420px;
+	max-width: 420px;
+	background-color: rgba(31, 39, 49, 0.5);
+}
+.media-menu .title,
+.media-menu .source,
+.media-menu .artist {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-left: 10px;
+}
+.media-menu .title {
+	font-size: 14px;
+	font-weight: 600;
+}
+.media-menu .artist {
+	font-size: 13px;
+	color: #6c7086;
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+.media-menu .source {
+	font-size: 11px;
+	color: #000;
+	font-weight: normal;
+	border-radius: 3px;
+	background-color: #bac2de;
+	padding: 2px 4px;
+}
+.media-menu .btn {
+	font-family: 'Segoe Fluent Icons';
+	font-size: 14px;
+	font-weight: 400;
+	margin: 10px 2px 0;
+	min-width: 40px;
+	max-width: 40px;
+	min-height: 40px;
+	max-height: 40px;
+	border-radius: 20px;
+}
+.media-menu .btn.prev {
+	margin-left: 10px;
+}
+.media-menu .btn:hover {
+	color: white;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.media-menu .btn.play {
+	background-color: rgba(255, 255, 255, 0.1);
+	font-size: 20px;
+}
+.media-menu .btn.disabled,
+.media-menu .btn.disabled:hover {
+	color: #4e525c;
+	background-color: transparent;
+}
+.media-menu .playback-time {
+	font-size: 13px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: #7f849c;
+	margin-top: 20px;
+	min-width: 100px;
+}
+
+/* Power Menu */
+.power-menu-popup {
+	background-color: rgba(20, 13, 14, 0.9);
+	border-radius: 6px;
+	padding: 10px;
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+}
+.power-menu-popup .button {
+	width: 180px;
+	height: 230px;
+	margin: 0;
+	padding: 0;
+	border-radius: 8px;
+	background-color: rgba(255, 255, 255, 0.08);
+	color: var(--foreground-color);
+	border: 4px solid rgba(0, 0, 0, 0.05);
+	border-top-width: 8px;
+	border-bottom-width: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.power-menu-popup .button:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+	border-color: rgba(0, 0, 0, 0.1);
+}
+.power-menu-popup .button .label {
+	margin-bottom: 8px;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--accent-color);
+}
+.power-menu-popup .button .icon {
+	font-size: 64px;
+	padding-top: 32px;
+	color: var(--foreground-color);
+}
+.power-menu-popup .button.cancel {
+	height: 32px;
+	border-radius: 4px;
+}
+.power-menu-popup .button.cancel .icon {
+	padding: 0;
+	margin: 0;
+}
+.power-menu-popup .button.cancel .label {
+	color: var(--foreground-color);
+	margin: 0;
+}
+
+/* Traffic Menu */
+.traffic-menu {
+	background-color: var(--blurs);
+	min-width: 280px;
+}
+.traffic-menu .header {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(24, 25, 27, 0.4);
+}
+.traffic-menu .header .title {
+	padding: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: 'Segoe UI';
+	color: #ffffff;
+}
+.traffic-menu .header .reset-button {
+	font-size: 11px;
+	padding: 4px 8px;
+	margin-right: 8px;
+	font-family: 'Segoe UI';
+	border-radius: 4px;
+	font-weight: 600;
+	background-color: transparent;
+	border: none;
+}
+.traffic-menu .reset-button:hover {
+	color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.traffic-menu .reset-button:pressed {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+.traffic-menu .download-speed,
+.traffic-menu .upload-speed {
+	padding: 4px 10px;
+	margin: 16px 12px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.traffic-menu .speed-separator {
+	max-width: 1px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin: 32px 0 16px 0;
+}
+.traffic-menu .upload-speed-value,
+.traffic-menu .download-speed-value {
+	font-size: 24px;
+	font-weight: 900;
+	font-family: 'Segoe UI';
+}
+.traffic-menu .upload-speed-value {
+	color: rgba(243, 139, 168, 0.4);
+}
+.traffic-menu .download-speed-value {
+	color: rgba(166, 227, 161, 0.4);
+}
+
+.traffic-menu .upload-speed-unit,
+.traffic-menu .download-speed-unit {
+	font-size: 13px;
+	font-family: 'Segoe UI';
+	font-weight: 600;
+	padding-top: 4px;
+}
+.traffic-menu .upload-speed-placeholder,
+.traffic-menu .download-speed-placeholder {
+	color: #747474;
+	font-size: 11px;
+	font-family: 'Segoe UI';
+	padding-bottom: 4px;
+}
+.traffic-menu .section-title {
+	font-size: 12px;
+	font-weight: 600;
+	color: #7c8192;
+	margin-bottom: 4px;
+	font-family: 'Segoe UI';
+}
+.traffic-menu .session-section,
+.traffic-menu .today-section,
+.traffic-menu .alltime-section {
+	margin: 8px 8px 0;
+	padding: 0 10px 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.traffic-menu .data-text {
+	font-size: 13px;
+	color: #afb5cc;
+	padding: 2px 0;
+	font-family: 'Segoe UI';
+}
+.traffic-menu .data-value {
+	font-weight: 600;
+	font-size: 13px;
+	font-family: 'Segoe UI';
+	padding: 2px 0;
+}
+.traffic-menu .interface-info,
+.traffic-menu .internet-info {
+	font-size: 12px;
+	padding: 8px 0;
+	font-family: 'Segoe UI';
+}
+.traffic-menu .interface-info {
+	color: #6f7486;
+}
+.traffic-menu .internet-info.connected {
+	background-color: var(--green-alpha);
+	color: var(--green);
+}
+.traffic-menu .internet-info.disconnected {
+	background-color: var(--red-alpha);
+	color: var(--red);
+}
+
+/* VSCode Menu */
+.vscode-menu {
+	max-height: 500px;
+	min-width: 300px;
+}
+.vscode-menu .header {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	font-size: 15px;
+	font-weight: 400;
+	padding: 8px;
+	color: #cdd6f4;
+	background-color: rgba(17, 17, 27, 0.4);
+}
+.vscode-menu .contents {
+	background-color: var(--blurs);
+}
+.vscode-menu .item {
+	min-height: 40px;
+	padding: 6px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+.vscode-menu .item:hover {
+	background-color: #45475a;
+	border-bottom-color: transparent;
+}
+.vscode-menu .item .title {
+	font-size: 14px;
+	font-weight: 600;
+	margin-right: 5px;
+}
+.vscode-menu .item .modified-date {
+	font-size: 11px;
+	margin-right: 5px;
+	color: #797e91;
+}
+.vscode-menu .item .folder-icon,
+.vscode-menu .item .file-icon {
+	font-size: 16px;
+	margin-left: 8px;
+}
+.vscode-menu .item .folder-icon {
+	color: #f2cdcd;
+}
+.vscode-menu .item .file-icon {
+	color: #cba6f7;
+}
+
+/* Wallpapers Gallery */
+.wallpapers-gallery-window {
+	background-color: rgba(20, 13, 14, 0.9);
+	border: 0;
+	margin: 0;
+	border-radius: 8px;
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+}
+.wallpapers-gallery-buttons {
+	background-color: rgba(255, 255, 255, 0.08);
+	color: var(--foreground-color);
+	border: none;
+	font-size: 14px;
+	padding: 8px 0;
+	border-radius: 8px;
+	margin: 0 8px 8px;
+	width: 600px;
+}
+.wallpapers-gallery-buttons:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+}
+.wallpapers-gallery-image {
+	border: 4px solid transparent;
+	border-radius: 10px;
+}
+.wallpapers-gallery-image:hover,
+.wallpapers-gallery-image.focused {
+	border-color: var(--accent-color);
+}
+
+/* Weather Card */
+.weather-card {
+	background-color: var(--blurs);
+}
+.weather-card-today,
+.weather-card-day {
+	border-radius: 8px;
+	background-color: rgba(17, 17, 27, 0.2);
+}
+.weather-card-today .label,
+.weather-card-day .label {
+	font-size: 12px;
+}
+.weather-card-today .label.location {
+	font-size: 24px;
+	font-weight: 700;
+}
+.weather-card-today .label.alert {
+	font-size: 12px;
+	font-weight: 700;
+	background-color: rgba(247, 199, 42, 0.05);
+	border: 1px solid rgba(247, 209, 42, 0.1);
+	color: rgba(196, 181, 162, 0.85);
+	border-radius: 6px;
+	padding: 5px 0;
+}
+
+/* WiFi Menu */
+.wifi-menu {
+	font-family: 'Segoe UI';
+	background-color: var(--blurs);
+	min-height: 375px;
+	min-width: 375px;
+}
+.wifi-menu .progress-bar {
+	max-height: 2px;
+}
+.wifi-menu .progress-bar::chunk {
+	background-color: #4cc2ff;
+}
+.wifi-menu .header,
+.wifi-menu .error-message {
+	font-family: 'Segoe UI';
+	font-size: 14px;
+	font-weight: 600;
+	padding: 12px;
+	color: white;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wifi-menu .header {
+	margin-bottom: 2px;
+	background-color: rgba(17, 17, 27, 0.4);
+}
+.wifi-menu .error-message {
+	background-color: red;
+}
+.wifi-menu .wifi-list {
+	background-color: var(--blurs);
+	margin-right: 3px;
+}
+.wifi-menu .wifi-item {
+	min-height: 35px;
+	padding: 2px 12px;
+	margin: 2px 4px;
+}
+.wifi-menu .wifi-item:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 6px;
+}
+.wifi-menu .wifi-item[active='true'] {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-radius: 6px;
+	min-height: 80px;
+}
+.wifi-menu .wifi-item .icon {
+	font-family: 'Segoe Fluent Icons';
+	font-size: 26px;
+	margin-right: 10px;
+}
+.wifi-menu .wifi-item .name,
+.wifi-menu .wifi-item .password,
+.wifi-menu .wifi-item .status,
+.wifi-menu .wifi-item .strength {
+	font-family: 'Segoe UI';
+	font-size: 14px;
+}
+.wifi-menu .wifi-item .name {
+	margin-right: 10px;
+}
+.wifi-menu .wifi-item .password {
+	background-color: transparent;
+}
+.wifi-menu .wifi-item .controls-container {
+	padding-top: 8px;
+}
+.wifi-menu .wifi-item .connect {
+	background-color: rgba(255, 255, 255, 0.15);
+	padding: 4px 30px;
+	border-radius: 4px;
+	border: none;
+	font-size: 14px;
+}
+.wifi-menu .wifi-item .connect:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+.wifi-menu .wifi-item .connect:pressed {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.wifi-menu .footer {
+	font-size: 12px;
+	font-weight: 600;
+	padding: 12px;
+	margin-top: 2px;
+	color: #9399b2;
+	background-color: rgba(17, 17, 27, 0.4);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wifi-menu .footer .settings-button,
+.wifi-menu .footer .refresh-icon {
+	background-color: transparent;
+	border: none;
+	min-width: 26px;
+	min-height: 26px;
+	color: #fff;
+}
+.wifi-menu .footer .settings-button {
+	font-family: 'Segoe UI';
+}
+.wifi-menu .footer .refresh-icon {
+	font-family: 'Segoe Fluent Icons';
+}
+.wifi-menu .footer .refresh-icon:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+}

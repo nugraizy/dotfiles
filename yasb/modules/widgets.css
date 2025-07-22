@@ -1,0 +1,262 @@
+/* --- Widget-Specific Styles --- */
+
+/* Common padding for several widgets */
+.weather-widget,
+.battery-widget,
+.wifi-widget,
+.volume-widget,
+.traffic-widget,
+.disk-widget,
+.memory-widget,
+.brightness-widget {
+	padding: 0 5px;
+}
+
+/* AI Widget */
+.ai-widget {
+	padding: 0 4px;
+	margin: 0;
+}
+.ai-widget .widget-container {
+	margin: 4px 0;
+	border-radius: 12px;
+}
+.ai-widget .icon {
+	color: var(--blue);
+	padding: 0 5px;
+	font-size: 16px;
+	margin: 0;
+	font-weight: bold;
+}
+.ai-widget .icon:hover {
+	color: #fff;
+}
+
+/* Apps Widget */
+.apps-widget {
+	padding: 0 4px 0 2px;
+}
+.apps-widget .label {
+	font-size: 14px;
+	padding: 0 2px;
+	color: var(--foreground-color);
+}
+.apps-widget .widget-container .label {
+	font-size: 15px;
+}
+
+/* Battery Widget */
+.battery-widget .icon {
+	margin-right: 6px;
+	color: var(--foreground-color);
+}
+
+/* Brightness Widget */
+.brightness-widget {
+	margin-right: -6px;
+	margin-top: 2.4px;
+}
+.brightness-widget .icon {
+	color: var(--peach);
+	font-size: 16px;
+	margin-right: 4px;
+}
+
+/* Cava Widget */
+.cava-widget {
+	padding: 0;
+	margin: 0;
+}
+
+/* Clock Widget */
+.clock-widget .icon {
+	color: var(--green);
+	margin-right: 4px;
+	font-size: 18px;
+}
+
+/* CPU Widget */
+.cpu-widget .widget-container .icon {
+	color: var(--red);
+	font-size: 22px;
+	margin-right: 4px;
+}
+
+/* Disk Widget */
+.disk-widget .widget-container .label {
+	font-size: 15px;
+	color: var(--teal);
+}
+
+/* Github Widget */
+.github-widget .icon {
+	font-size: 15px;
+	color: var(--foreground-color);
+}
+
+/* Home Widget */
+.home-widget .label {
+	font-weight: bold;
+}
+.home-widget .icon {
+	font-size: 16px;
+	padding: 0 0 0 12px;
+	color: var(--mauve);
+}
+.home-widget .icon:hover {
+	color: var(--pink);
+}
+
+/* Komorebi & GlazeWM Workspaces */
+.komorebi-workspaces,
+.glazewm-workspaces {
+	padding: 0;
+}
+.komorebi-workspaces .offline-status,
+.glazewm-workspaces .offline-status {
+	color: var(--foreground-color);
+	font-size: 12px;
+	padding: 0 4px;
+	font-weight: 600;
+}
+.komorebi-workspaces .ws-btn,
+.glazewm-workspaces .ws-btn {
+	color: transparent;
+	width: 10px;
+	height: 10px;
+	background-color: var(--active-color);
+	border-radius: 5px;
+	margin: 0 2px;
+	font-size: 1px;
+}
+.komorebi-workspaces .ws-btn:hover,
+.glazewm-workspaces .ws-btn:hover {
+	background-color: var(--hover-color);
+}
+.komorebi-workspaces .ws-btn.populated,
+.glazewm-workspaces .ws-btn.populated {
+	background-color: var(--active-color);
+}
+.komorebi-workspaces .ws-btn.active,
+.glazewm-workspaces .ws-btn.active_populated,
+.glazewm-workspaces .ws-btn.active_empty {
+	color: transparent;
+	background-color: var(--icon-color);
+	width: 36px;
+}
+
+/* Komorebi Active Layout */
+.komorebi-active-layout {
+	padding: 0 4px;
+}
+.komorebi-active-layout .label {
+	font-weight: 600;
+	padding-bottom: 2px;
+}
+
+/* GlazeWM Tiling Direction */
+.glazewm-tiling-direction {
+	background-color: transparent;
+	padding: 0;
+	margin: 4px 0;
+}
+.glazewm-tiling-direction .btn {
+	font-size: 14px;
+	width: 14px;
+	padding: 0 4px 0 12px;
+	color: var(--foreground-color);
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 2px;
+}
+.glazewm-tiling-direction .btn:hover {
+	background-color: var(--hover-color);
+}
+
+/* Media Widget */
+.media-widget .label,
+.media-widget .label.alt {
+	font-style: italic;
+}
+
+/* Memory Widget */
+.memory-widget .icon {
+	font-size: 18px;
+	color: var(--mauve);
+	padding: 0 5px;
+}
+
+/* Power Menu Widget */
+.power-menu-widget .label {
+	font-size: 22px;
+}
+
+/* Traffic Widget */
+.traffic-widget .download,
+.traffic-widget .upload {
+	margin-right: 4px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.traffic-widget .download {
+	color: var(--green);
+}
+.traffic-widget .upload {
+	color: var(--red);
+}
+
+/* Uptime Widget */
+.uptime {
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: var(--foreground-color);
+	font-weight: 600;
+}
+
+/* VSCode Widget */
+.vscode-widget .icon {
+	font-size: 18px;
+}
+.vscode-widget .widget-container .icon {
+	color: var(--blue);
+}
+
+/* Volume Widget */
+.volume-widget .icon {
+	color: var(--sapphire);
+	margin: 1px 2px 0 0;
+	font-weight: bold;
+}
+
+/* Wallpapers Widget */
+.wallpapers-widget .icon {
+	color: var(--foreground-color);
+	font-size: 14px;
+	margin: 0;
+}
+
+/* Weather Widget */
+.weather-widget .icon {
+	font-size: 18px;
+	font-weight: bold;
+	color: var(--maroon);
+	margin: 0 4px 1px 0;
+}
+
+/* WHKD Widget */
+.whkd-widget {
+	padding: 0 6px;
+}
+.whkd-widget .icon {
+	font-size: 14px;
+	color: var(--foreground-color);
+}
+
+/* WiFi Widget */
+.wifi-widget .widget-container .label {
+	font-size: 15px;
+	padding: 0 12px 0 0;
+	color: var(--lavender);
+}

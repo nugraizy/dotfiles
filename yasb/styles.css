@@ -1,0 +1,18 @@
+/* --- Main Stylesheet --- */
+
+@import url('./modules/variables.css');
+@import url('./modules/layout.css');
+@import url('./modules/widgets.css');
+@import url('./modules/menus.css');
+
+/* --- Base Styles --- */
+/* Applies a consistent base to all elements. */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	color: var(--foreground-color);
+	font-family: 'Segoe UI', 'JetBrainsMono NFP';
+	font-size: 12px;
+	font-weight: 600;
+}

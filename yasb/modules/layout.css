@@ -1,0 +1,98 @@
+/* --- Core Layout Styles --- */
+
+/* Main bar */
+.yasb-bar {
+	background-color: var(--blurs);
+	border-radius: 8px;
+	border: 0.1px solid var(--border-color);
+}
+
+/* Generic widget styling */
+.widget {
+	padding: 0 8px;
+	margin: 0;
+}
+
+/* Generic icon styling */
+.icon {
+	font-size: 14px;
+	color: var(--icon-color);
+}
+
+.container-right .widget .icon:hover {
+	color: var(--icon-hover);
+}
+
+.widget .label {
+	padding: 0 2px;
+}
+
+/* Shared container style for specific widgets */
+.apps-widget .widget-container,
+.komorebi-workspaces .widget-container,
+.komorebi-active-layout .widget-container,
+.glazewm-workspaces .widget-container,
+.glazewm-tiling-direction .widget-container {
+	background-color: var(--blurs-apps);
+	border-radius: 16px;
+	margin: 6px 0;
+	border: 0.5px solid var(--border-color);
+}
+
+/* Taskbar widget */
+.taskbar-widget {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+.taskbar-widget .app-icon {
+	padding: 0 6px;
+	margin: 0;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.taskbar-widget .app-icon:hover {
+	background-color: var(--hover-color);
+	border-radius: 3px;
+}
+
+/* System Tray */
+.systray {
+	margin-top: 2.4px;
+	margin-right: -12px;
+	border: none;
+	display: flex;
+	align-items: center;
+}
+
+.systray .unpinned-container {
+	border-radius: 8px;
+	padding: 2px;
+}
+
+.systray .pinned-container {
+	background: transparent;
+	padding: 2px;
+}
+
+.systray .button {
+	margin: 0 2px;
+	color: var(--foreground-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 3px;
+}
+
+.systray .button:hover {
+	background: var(--hover-color);
+}
+
+.systray .unpinned-visibility-btn {
+	border-radius: 4px;
+	font-size: 20px;
+}
