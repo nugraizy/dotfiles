@@ -21,7 +21,7 @@
 .brightness-menu .brightness-slider::sub-page,
 .media-menu .progress-slider::sub-page {
 	background: var(--mauve);
-	border-radius: 3px;
+	border-radius: 6px;
 	height: 4px;
 }
 
@@ -46,12 +46,13 @@
 
 /* Brightness Menu */
 .brightness-menu {
-	background-color: rgba(17, 17, 27, 0.4);
+	background-color: var(--blurs);
 }
 
 /* Calendar Menu */
 .calendar {
 	background-color: var(--blurs);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .calendar .calendar-table,
 .calendar .calendar-table::item {
@@ -63,9 +64,10 @@
 	outline: none;
 }
 .calendar .calendar-table::item:selected {
-	color: var(--crust); /* Note: --crust is not defined in variables */
-	background-color: var(--lavender);
+	color: var(--mauve);
+	background-color: rgba(17, 17, 27, 0.4);
 	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .calendar .day-label,
 .calendar .month-label,
@@ -77,11 +79,11 @@
 }
 .calendar .day-label {
 	margin-top: 20px;
-	color: var(--maroon);
+	color: var(--red);
 }
 .calendar .month-label {
 	color: var(--green);
-	font-weight: normal;
+	/* font-weight: normal; */
 }
 .calendar .date-label {
 	color: var(--white-blurs);
@@ -195,7 +197,6 @@
 	padding: 6px 48px 7px 16px;
 	font-size: 12px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	color: var(--text); /* Note: --text is not defined */
 	font-weight: 600;
 }
 .home-menu .menu-item:hover {
@@ -248,6 +249,11 @@
 	max-height: 40px;
 	border-radius: 20px;
 }
+.media-menu .btn.prev,
+.media-menu .btn.next {
+	font-size: 26px;
+}
+
 .media-menu .btn.prev {
 	margin-left: 10px;
 }
@@ -652,4 +658,193 @@
 .wifi-menu .footer .refresh-icon:hover {
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 4px;
+}
+
+/* Power Plan Menu */
+.power-plan-menu .menu-content {
+	margin: 10px;
+}
+.power-plan-menu .menu-content .button {
+	background-color: transparent;
+	font-weight: 600;
+	font-size: 13px;
+	font-family: 'Segoe UI';
+	padding: 6px 12px;
+	margin: 1px 0;
+	border: none;
+	border-radius: 4px;
+	text-align: left;
+}
+.power-plan-menu .menu-content .button:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+.power-plan-menu .menu-content .button.active {
+	background-color: rgba(0, 120, 212, 0.1);
+	border: 1px solid rgba(0, 120, 212, 0.4);
+}
+
+/* AI Chat Menu */
+.ai-chat-popup {
+	background-color: var(--blurs);
+	min-width: 500px;
+	max-width: 500px;
+	min-height: 600px;
+	max-height: 600px;
+}
+.ai-chat-popup .chat-header {
+	background-color: rgba(24, 25, 27, 0.4);
+	padding: 16px;
+}
+.ai-chat-popup .chat-footer {
+	background-color: rgba(24, 25, 27, 0);
+	padding: 16px;
+}
+.ai-chat-popup .chat-header .provider-label,
+.ai-chat-popup .chat-header .model-label {
+	font-family: 'Segoe UI';
+	font-size: 14px;
+	color: #ffffff;
+	margin-right: 8px;
+	font-weight: 600;
+}
+.ai-chat-popup .chat-header .provider-button,
+.ai-chat-popup .chat-header .model-button {
+	font-family: 'Segoe UI';
+	background-color: #202020;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	font-size: 13px;
+	color: #ffffff;
+	margin-right: 8px;
+	min-width: 130px;
+	max-width: 130px;
+	border-radius: 6px;
+	padding: 4px 10px;
+}
+.ai-chat-popup .chat-header .provider-button:disabled,
+.ai-chat-popup .chat-header .model-button:disabled {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Context menu styles for header and chat content */
+.ai-chat-popup .context-menu {
+	background-color: #202020;
+	border: none;
+	padding: 4px 0px;
+	font-family: 'Segoe UI';
+	font-size: 12px;
+	color: #ffffff;
+}
+.ai-chat-popup .context-menu::separator {
+	height: 1px;
+	background-color: #404040;
+	margin: 4px 8px;
+}
+
+.ai-chat-popup .context-menu::item {
+	background-color: transparent;
+	padding: 6px 12px;
+	margin: 2px 6px;
+	border-radius: 4px;
+	min-width: 100px;
+}
+/* Context menu item styles for header dropdown */
+.ai-chat-popup .chat-header .context-menu::item {
+	min-width: 130px;
+	max-width: 130px;
+	padding: 4px;
+}
+.ai-chat-popup .context-menu::item:disabled {
+	color: #666666;
+}
+.ai-chat-popup .context-menu::item:selected {
+	background-color: #3a3a3a;
+	color: #ffffff;
+}
+.ai-chat-popup .context-menu::item:checked {
+	background-color: #0078d7;
+	color: #ffffff;
+}
+
+.ai-chat-popup .chat-content {
+	background-color: rgba(206, 10, 10, 0);
+	border: none;
+}
+.ai-chat-popup .chat-content .empty-chat .greeting,
+.ai-chat-popup .chat-content .empty-chat .message {
+	color: rgba(255, 255, 255, 0.8);
+	font-family: 'Segoe UI';
+	font-size: 48px;
+	font-weight: 600;
+}
+.ai-chat-popup .chat-content .empty-chat .message {
+	color: rgba(255, 255, 255, 0.4);
+	font-size: 24px;
+	padding-top: 8px;
+}
+.ai-chat-popup .chat-content .user-message,
+.ai-chat-popup .chat-content .assistant-message {
+	color: #ffffff;
+	padding: 8px;
+	border-radius: 4px;
+	margin: 4px 0;
+	font-family: 'Segoe UI';
+	font-size: 14px;
+}
+.ai-chat-popup .chat-content .user-message {
+	margin-left: 26px;
+}
+.ai-chat-popup .chat-content .assistant-message {
+	background-color: rgba(162, 168, 187, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ai-chat-popup .chat-content .assistant-icon {
+	font-size: 24px;
+	color: #89b4fa;
+	margin-right: 8px;
+	font-family: 'JetBrainsMono NFP';
+}
+
+.ai-chat-popup .chat-footer .chat-input {
+	background-color: rgba(24, 25, 27, 0.6);
+	border: 2px solid #2d2d2d;
+	border-radius: 4px;
+	padding: 0 8px;
+	font-family: 'Segoe UI';
+	font-size: 14px;
+	color: #ffffff;
+	margin-top: 8px;
+	max-height: 28px;
+	min-height: 28px;
+}
+.ai-chat-popup .chat-footer .chat-input:focus {
+	border-color: #0078d7;
+}
+.ai-chat-popup .chat-footer .clear-button,
+.ai-chat-popup .chat-footer .send-button,
+.ai-chat-popup .chat-footer .stop-button {
+	background-color: #2d2d2d;
+	color: #ffffff;
+	font-size: 12px;
+	max-width: 30px;
+	min-width: 30px;
+	max-height: 30px;
+	min-height: 30px;
+	border-radius: 4px;
+	margin-top: 8px;
+	border: none;
+	font-family: 'JetBrainsMono NFP';
+}
+.ai-chat-popup .chat-footer .stop-button {
+	background-color: #0078d7;
+}
+.ai-chat-popup .chat-footer .clear-button:hover,
+.ai-chat-popup .chat-footer .send-button:hover,
+.ai-chat-popup .chat-footer .stop-button:hover {
+	background-color: #464646;
+}
+.ai-chat-popup .chat-footer .clear-button:disabled,
+.ai-chat-popup .chat-footer .send-button:disabled,
+.ai-chat-popup .chat-footer .stop-button:disabled {
+	background-color: #2d2d2d;
+	color: #818181;
 }

@@ -1,5 +1,9 @@
 /* --- Widget-Specific Styles --- */
 
+.progress-circle {
+	padding-right: 4px;
+}
+
 /* Common padding for several widgets */
 .weather-widget,
 .battery-widget,
@@ -8,6 +12,7 @@
 .traffic-widget,
 .disk-widget,
 .memory-widget,
+.cpu-widget,
 .brightness-widget {
 	padding: 0 5px;
 }
@@ -53,7 +58,7 @@
 
 /* Brightness Widget */
 .brightness-widget {
-	margin-right: -6px;
+	margin-right: -10px;
 	margin-top: 2.4px;
 }
 .brightness-widget .icon {
@@ -70,7 +75,7 @@
 
 /* Clock Widget */
 .clock-widget .icon {
-	color: var(--green);
+	color: var(--lavender);
 	margin-right: 4px;
 	font-size: 18px;
 }
@@ -80,17 +85,23 @@
 	color: var(--red);
 	font-size: 22px;
 	margin-right: 4px;
+	padding: 0 10px;
 }
 
 /* Disk Widget */
-.disk-widget .widget-container .label {
+/* .disk-widget .widget-container .label {
 	font-size: 15px;
-	color: var(--teal);
+	color: var(--foreground-color);
+} */
+
+.disk-widget .icon {
+	font-size: 15px;
+	color: var(--red);
 }
 
 /* Github Widget */
 .github-widget .icon {
-	font-size: 15px;
+	font-size: 16px;
 	color: var(--foreground-color);
 }
 
@@ -223,6 +234,21 @@
 	color: var(--blue);
 }
 
+.twitter-widget .icon {
+	font-size: 18px;
+	color: #1da1f2;
+}
+
+.discord-widget .icon {
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.steam-widget .icon {
+	font-size: 16px;
+	color: #ffffff;
+}
+
 /* Volume Widget */
 .volume-widget .icon {
 	color: var(--sapphire);
@@ -259,4 +285,71 @@
 	font-size: 15px;
 	padding: 0 12px 0 0;
 	color: var(--lavender);
+}
+
+/* Power Plan Widget */
+.power-plan-widget {
+	padding: 0 6px 0 6px;
+}
+.power-plan-widget .label {
+	font-size: 12px;
+}
+.power-plan-widget .icon {
+	font-size: 14px;
+}
+
+.power-plan-menu {
+	background-color: var(--blurs);
+}
+.power-plan-widget .icon {
+	padding-right: 4px;
+}
+
+/* Balanced Icon & Label */
+.power-plan-widget .icon.balanced {
+	color: var(--blue);
+}
+.power-plan-widget .label.balanced {
+	color: var(--sky);
+}
+
+/* High Performance Icon & Label */
+.power-plan-widget .icon.high-performance {
+	color: var(--peach);
+}
+.power-plan-widget .label.high-performance {
+	color: var(--yellow);
+}
+
+/* Power Saver Icon & Label */
+.power-plan-widget .icon.power-saver {
+	color: var(--green);
+}
+.power-plan-widget .label.power-saver {
+	color: var(--teal);
+}
+
+/* Ultimate Performance Icon & Label */
+.power-plan-widget .icon.ultimate-performance {
+	color: var(--red);
+}
+.power-plan-widget .label.ultimate-performance {
+	color: var(--pink);
+}
+
+/* AI */
+.ai-chat-widget {
+	padding: 0 6px 0 6px;
+}
+.ai-chat-widget .icon {
+	color: #89b4fa;
+	font-size: 18px;
+}
+
+/* Spotify Widget */
+.spotify-widget .icon {
+	font-size: 16px;
+}
+.spotify-widget .widget-container .icon {
+	color: #1ed760;
 }

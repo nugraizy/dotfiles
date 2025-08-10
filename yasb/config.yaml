@@ -27,16 +27,16 @@ bars:
       width: '100%'
       height: 45
     padding:
-      top: 20
+      top: 30
       left: 30
-      bottom: 0
+      bottom: 10
       right: 30
     widgets:
-      left: ['home', 'media', 'active_window']
-      center: ['clock', 'apps', 'ai', 'vscode', 'github']
-      right: ['traffic', 'cpu', 'memory', 'disk', 'weather', 'brightness', 'volume', 'wifi']
+      left: ['home', 'apps', 'apps_grouper', 'media']
+      center: ['clock']
+      right: ['traffic', 'power_plan', 'hardware_monitor', 'weather', 'brightness', 'volume', 'wifi']
 widgets:
-  ai:
+  gemini:
     type: 'yasb.custom.CustomWidget'
     options:
       label: "<span>\udb81\ude74</span>"
@@ -99,28 +99,29 @@ widgets:
   memory:
     type: 'yasb.memory.MemoryWidget'
     options:
-      label: "<span>\uefc5</span> {virtual_mem_free}"
-      label_alt: "<span>\uefc5</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
-      update_interval: 5000
+      label: 'MEM'
+      label_alt: 'VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%'
+      update_interval: 1000
+      progress_bar:
+        enabled: true
+        size: 18
+        thickness: 3
+        color: '#f38ba8'
+        background_color: '#282A36'
       callbacks:
         on_left: 'toggle_label'
-        on_middle: 'do_nothing'
-        on_right: 'do_nothing'
       memory_thresholds:
         low: 25
         medium: 50
         high: 90
-      label_shadow:
-        enabled: false
-        color: 'black'
-        radius: 3
-        offset: [1, 1]
   disk:
     type: 'yasb.disk.DiskWidget'
     options:
-      label: "\uf473"
+      label: 'DISK'
+      label_alt: '{volume_label} {space[used][gb]} / {space[total][gb]}'
+      volume_label: 'E'
       group_label:
-        volume_labels: ['C', 'D', 'E', 'F']
+        volume_labels: ['C', 'E']
         show_label_name: true
         blur: True
         round_corners: True
@@ -131,34 +132,66 @@ widgets:
         distance: 6
       callbacks:
         on_left: 'toggle_group'
+        on_right: 'toggle_label'
+      progress_bar:
+        enabled: true
+        size: 18
+        thickness: 3
+        color: '#89dceb'
+        background_color: '#282A36'
   cpu:
     type: 'yasb.cpu.CpuWidget'
     options:
-      label: "<span>\udb83\udee0</span> {info[percent][total]}%"
-      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
-      update_interval: 2000
-      histogram_icons:
-        - '\u2581' # 0%
-        - '\u2581' # 10%
-        - '\u2582' # 20%
-        - '\u2583' # 30%
-        - '\u2584' # 40%
-        - '\u2585' # 50%
-        - '\u2586' # 60%
-        - '\u2587' # 70%
-        - '\u2588' # 80%+
-      histogram_num_columns: 8
-      callbacks:
-        on_right: 'exec cmd /c Taskmgr'
-      label_shadow:
+      label: 'CPU'
+      label_alt: '{info[percent][total]:.0f}%'
+      progress_bar:
+        enabled: true
+        size: 18
+        thickness: 3
+        color: '#cba6f7'
+        background_color: '#282A36'
+  ai_chat:
+    type: 'yasb.ai_chat.AiChatWidget'
+    options:
+      label: "<span>\udb81\ude74</span>"
+      chat:
+        blur: true
+        round_corners: true
+        round_corners_type: 'normal'
+        border_color: 'system'
+        alignment: 'center'
+        direction: 'down'
+        offset_left: 0
+        offset_top: 6
+      icons:
+        send: "\uf1d8"
+        stop: "\uf04d"
+        clear: "\uf1f8"
+        assistant: "\udb81\ude74"
+      notification_dot:
         enabled: false
-        color: 'black'
-        radius: 3
-        offset: [1, 1]
+        corner: 'top_right'
+        color: 'red'
+        margin: [0, 2]
+      callbacks:
+        on_left: 'toggle_chat'
+      providers:
+        - provider: 'Ollama'
+          api_endpoint: 'http://127.0.0.1:11434/v1'
+          credential: 'ollama'
+          models:
+            - name: 'deepseek-r1:8b'
+              label: 'Deepseek R1 8B'
+            - name: 'deepseek-r1:14b'
+              label: 'Deepseek R1 14B'
+            - name: 'gpt-oss:20b'
+              label: 'GPT-OSS 20B'
+            - name: 'gemma3:27b'
+              label: 'Gemma 3 27B'
   traffic:
     type: 'yasb.traffic.TrafficWidget'
     options:
-      label: "<span class='download'>\uea9a</span> {download_speed}  | <span class='upload'>\ueaa1</span> {upload_speed}"
+      label: "<span class='download'>\uf175</span>{download_speed}⠀<span class='upload'>\uf176</span>{upload_speed}"
       update_interval: 1000
       menu:
         blur: true
@@ -189,17 +222,17 @@ widgets:
   cava:
     type: 'yasb.cava.CavaWidget'
     options:
-      bar_height: 12
+      bar_height: 14
       min_bar_height: 0
       gradient: 1
       reverse: 0
-      foreground: '#ffffff' # '#89b4fa'
-      gradient_color_1: '#ffffff' # '#ff05b5'
-      gradient_color_2: '#ffffff' # '#ff54ff'
-      gradient_color_3: '#ffffff' # '#FFB0FF'
-      bars_number: 8
-      bar_spacing: 2
-      bar_width: 4
+      foreground: '#89b4fa'
+      gradient_color_1: '#ff05b5'
+      gradient_color_2: '#ff54ff'
+      gradient_color_3: '#FFB0FF'
+      bars_number: 10
+      bar_spacing: 1
+      bar_width: 8
       hide_empty: true
       sleep_timer: 2
       container_padding:
@@ -211,8 +244,8 @@ widgets:
   clock:
     type: 'yasb.clock.ClockWidget'
     options:
-      label: "<span>\udb85\udc42</span> {%H:%M %p}"
-      label_alt: '{%A, %d %B %Y %H:%M:%S}'
+      label: '<span>{icon}</span> {%H:%M %p}'
+      label_alt: "<span>\uf073</span> {%A, %d %B %Y %H:%M:%S}"
       timezones: []
       callbacks:
         on_right: 'toggle_label'
@@ -220,11 +253,26 @@ widgets:
       calendar:
         blur: True
         round_corners: True
-        round_corners_type: 'small'
-        border_color: 'None'
+        round_corners_type: 'normal'
+        border_color: 'System'
         alignment: 'center'
         direction: 'down'
         distance: 6
+        country_code: 'ID'
+        holiday_color: '#FF6464'
+      icons:
+        clock_01: "\udb85\udc3f"
+        clock_02: "\udb85\udc40"
+        clock_03: "\udb85\udc41"
+        clock_04: "\udb85\udc42"
+        clock_05: "\udb85\udc43"
+        clock_06: "\udb85\udc44"
+        clock_07: "\udb85\udc45"
+        clock_08: "\udb85\udc46"
+        clock_09: "\udb85\udc47"
+        clock_10: "\udb85\udc48"
+        clock_11: "\udb85\udc49"
+        clock_12: "\udb85\udc4a"
   komorebi_workspaces:
     type: 'komorebi.workspaces.WorkspaceWidget'
     options:
@@ -441,9 +489,9 @@ widgets:
   media:
     type: 'yasb.media.MediaWidget'
     options:
-      label: '{title}'
-      label_alt: '{artist} — {title}'
-      hide_empty: false
+      label: '{artist} — {title}'
+      label_alt: '{title}'
+      hide_empty: true
       callbacks:
         on_left: 'toggle_media_menu'
         on_middle: 'do_nothing'
@@ -478,7 +526,7 @@ widgets:
         round_corners: true
         round_corners_type: 'normal'
         border_color: 'system'
-        alignment: 'left'
+        alignment: 'center'
         direction: 'down'
         offset_top: 6
         offset_left: 0
@@ -487,11 +535,11 @@ widgets:
         max_title_size: 80
         max_artist_size: 20
         show_source: true
-      # media_menu_icons:
-      #   play: "\ue768"
-      #   pause: "\ue769"
-      #   prev_track: "\ue892"
-      #   next_track: "\ue893"
+      media_menu_icons:
+        play: "\uf04b"
+        pause: "\uf04c"
+        prev_track: "\udb81\udcae"
+        next_track: "\udb81\udcad"
       label_shadow:
         enabled: false
         color: 'black'
@@ -507,11 +555,12 @@ widgets:
         right: 8
       label: '{data}'
       app_list:
-        - { icon: "\uf0a2", launch: 'notification_center' } # launch notification center
-        - { icon: "\uf422", launch: 'search' } # launch search
-        - { icon: "\uf437", launch: 'cmd /c Taskmgr' }
-        - { icon: "\uf489", launch: 'wt' } # launch terminal
-        - { icon: "\uf03e", launch: 'wt "C:\Program Files (x86)\Steam\steam.exe" steam://rungameid/431960' }
+        - { icon: "\uf0f3", launch: 'notification_center' } # launch notification center
+        - { icon: "\uf002", launch: 'search' } # launch search
+        - { icon: "\uf200", launch: 'cmd /c Taskmgr' }
+        - { icon: "\uf121", launch: 'wt' } # launch terminal
+        - { icon: "\udb80\ude54", launch: 'wt "C:\Program Files (x86)\Steam\steam.exe" steam://rungameid/431960' }
+        - { icon: "\uf463", launch: 'C:\Program Files\MiniMeters\MiniMeters.exe' }
   wallpaper:
     type: 'yasb.applications.ApplicationsWidget'
     options:
@@ -537,7 +586,7 @@ widgets:
       menu:
         blur: true
         round_corners: true
-        round_corners_type: 'small'
+        round_corners_type: 'normal'
         alignment: 'center'
         offset_top: 0
   github:
@@ -545,7 +594,7 @@ widgets:
     options:
       label: "<span>\ueba1</span>"
       label_alt: 'Notifications {data}'
-      token: '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'
+      token: ''
       max_notification: 30
       notification_dot:
         enabled: True
@@ -572,3 +621,93 @@ widgets:
         left: 0
         bottom: 0
         right: 0
+  power_plan:
+    type: 'yasb.power_plan.PowerPlanWidget'
+    options:
+      label: '<span>{icon}</span>'
+      label_alt: '<span>{icon}</span> {active_plan}'
+      update_interval: 5000
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: 'normal'
+        border_color: 'system'
+        alignment: 'center'
+        direction: 'down'
+        offset_top: 6
+        offset_left: 0
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+      callbacks:
+        on_left: 'toggle_menu'
+        on_right: 'toggle_label'
+      label_shadow:
+        enabled: false
+        color: 'black'
+        offset: [1, 1]
+        radius: 3
+      container_shadow:
+        enabled: false
+        color: '#000000'
+        offset: [0, 1]
+        radius: 2
+      icons:
+        balanced: "\uf24e"
+        high-performance: "\udb85\udc0b"
+        power-saver: "\ue22f"
+        ultimate-performance: "\udb85\udcde"
+  spotify:
+    type: 'yasb.custom.CustomWidget'
+    options:
+      label: "<span>\uf1bc</span>"
+      label_alt: "<span>\uf1bc</span>"
+      class_name: 'spotify-widget'
+      callbacks:
+        on_left: 'exec "C:\\Users\\Nugra\\AppData\\Roaming\\Spotify\\Spotify.exe"'
+  hardware_monitor:
+    type: 'yasb.grouper.GrouperWidget'
+    options:
+      class_name: 'grouped-widgets'
+      widgets: ['cpu', 'memory', 'disk']
+      container_padding:
+        top: 0
+        left: 2
+        bottom: 0
+        right: 6
+  apps_grouper:
+    type: 'yasb.grouper.GrouperWidget'
+    options:
+      class_name: 'grouped-widgets'
+      widgets: ['discord', 'steam', 'twitter', 'spotify', 'vscode', 'github', 'ai_chat']
+      container_padding:
+        top: 0
+        left: 2
+        bottom: 0
+        right: 6
+  twitter:
+    type: 'yasb.custom.CustomWidget'
+    options:
+      label: "<span>\ueb72</span>"
+      label_alt: "<span>\ueb72</span>"
+      class_name: 'twitter-widget'
+      callbacks:
+        on_left: 'exec cmd.exe /c start https://x.com'
+  discord:
+    type: 'yasb.custom.CustomWidget'
+    options:
+      label: "<span>\uf1ff</span>"
+      label_alt: "<span>\uf1ff</span>"
+      class_name: 'discord-widget'
+      callbacks:
+        on_left: 'exec "C:\\Users\\Nugra\\AppData\\Local\\Discord\\app-1.0.9202\\Discord.exe"'
+  steam:
+    type: 'yasb.custom.CustomWidget'
+    options:
+      label: "<span>\uf1b6</span>"
+      label_alt: "<span>\uf1b6</span>"
+      class_name: 'steam-widget'
+      callbacks:
+        on_left: 'exec "C:\\Program Files (x86)\\Steam\\Steam.exe"'

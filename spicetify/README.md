@@ -14,6 +14,6 @@ iwr -useb https://raw.githubusercontent.com/Astromations/Hazy/main/install.ps1 |
 
 _note: you can find the directory using `spicetify config-dir`, then go to Themes > Hazy._
 
-### Screenshot
+# Screenshot
 
 <img src="./screenshot/spotify.jpg">

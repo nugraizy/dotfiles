@@ -12,13 +12,12 @@ Copy and paste the content of the json into the mods based on.
 4. [Taskbar height and icon size](./mods/taskbar_icon.json)
 5. Windows 11 Notification Center Styler > Choose TranslucentShell for the theme in the Settings of the mod.
 
-### Screenshots
+# Screenshots
 
-<details>
-<summary>1. Taskbar</summary>
+## 1. Taskbar
+
 <img src="./screenshots/taskbar.png">
-</details>
-<details>
-<summary>2. Start Menu</summary>
+
+## 2. Start Menu
+
 <img src="./screenshots/start_menu.png">
-</details>

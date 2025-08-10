@@ -1,24 +1,24 @@
 # Zen Browser Configs
 
-Uses Zen Browser [v1.14.5b](https://github.com/zen-browser/desktop/releases/tag/1.14.5b), Sine Mods [v2.1.5](https://github.com/CosmoCreeper/Sine/releases/tag/v2.1.5)
+Uses Zen Browser [latest](https://github.com/zen-browser/desktop/releases/latest), Sine Mods [latest](https://github.com/CosmoCreeper/Sine/releases/latest)
 
 ### Installing
 
 1. Install Sine Mods, [guide](https://github.com/CosmoCreeper/Sine/wiki/Installation#-automatic-installation-recommended)
 2. Installing mods :
-<details>
-<summary>2a. Nebula</summary>
-<img src="./settings/nebula.png">
-</details>
-<details>
-<summary>2b. Advanced Tab Groups</summary>
+
+2a. Nebula
+
+<img src="./settings/nebula.png"></img>
+
+2b. Advanced Tab Groups
+
 <img src="./settings/advanced_tab_groups.png">
-</details>
+
 2c. Animation Plus
-<details>
-<summary>2d. Context Menu Icons</summary>
-<img src="./settings/context_menu_icons.png">
-</details>
+
+2d. Context Menu Icons <img src="./settings/context_menu_icons.png">
+
 2e. Left close button
 
 2f. Load Bar
@@ -30,16 +30,24 @@ Uses Zen Browser [v1.14.5b](https://github.com/zen-browser/desktop/releases/tag/
 @import 'modules/MinimalExit.css';
 ```
 
-5. set `zen.view.experimental-force-window-controls-left` to `true` from the `about:config`
+5. Comment this line in Nebula.css :
 
-### Screenshots
+```css
+@import 'modules/Workspace-buttons.css';
+```
 
-<details>
-<summary>1. Welcome Page</summary>
+6. set `zen.view.experimental-force-window-controls-left` to `true` from the `about:config`
+
+# Screenshots
+
+## 1. Welcome Page
+
 <img src="./screenshots/welcome_page.jpg">
-</details>
 
-<details>
-<summary>2. Github Page</summary>
+## 2. Github Page
+
 <img src="./screenshots/github.png">
-</details>
+
+## 3. Window Controls
+
+<img src="./screenshots/window_controls.png">
