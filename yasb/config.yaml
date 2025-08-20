@@ -2,9 +2,9 @@ watch_stylesheet: true
 watch_config: true
 debug: false
 komorebi:
-  start_command: 'komorebic start --masir --ahk'
-  stop_command: 'komorebic stop --masir --ahk'
-  reload_command: 'komorebic stop --masir --ahk && komorebic start --masir --ahk'
+  start_command: 'komorebic start --whkd --masir'
+  stop_command: 'komorebic stop --whkd --masir'
+  reload_command: 'komorebic stop --whkd --masir && komorebic start --whkd --masir'
 bars:
   primary-bar:
     enabled: true
@@ -29,12 +29,12 @@ bars:
     padding:
       top: 30
       left: 30
-      bottom: 10
+      bottom: 0
       right: 30
     widgets:
-      left: ['home', 'apps', 'apps_grouper', 'media']
-      center: ['clock']
-      right: ['traffic', 'power_plan', 'hardware_monitor', 'weather', 'brightness', 'volume', 'wifi']
+      left: ['home', 'separator', 'apps', 'apps_grouper', 'ai_chat', 'media']
+      center: ['komorebi_active_layout', 'komorebi_workspaces']
+      right: ['traffic', 'power_plan', 'weather', 'brightness', 'volume', 'hardware_monitor', 'clock', 'separator', 'wifi']
 widgets:
   gemini:
     type: 'yasb.custom.CustomWidget'
@@ -47,10 +47,10 @@ widgets:
   home:
     type: 'yasb.home.HomeWidget'
     options:
-      label: "<span>\uf015</span>"
+      label: "<span>\ue8e5</span>"
       menu_list:
         - { title: "<span style='color: #a6e3a1'>\udb84\udcb5</span>⠀User Home", path: '~' }
-        - { title: "<span style='color: #f5c2e7'>\udb80\ude4d</span>⠀Download", path: "E:\\Downloads" }
+        - { title: "<span style='color: #f5c2e7'>\uf019</span>⠀Download", path: "E:\\Downloads" }
         - { title: "<span style='color: #f38ba8'>\udb86\uddf6</span>⠀Documents", path: "C:\\Users\\Nugra\\Documents" }
         - { title: "<span style='color: #74c7ec'>\udb80\ude4f</span>⠀Pictures", path: "C:\\Users\\Nugra\\Pictures" }
         - {
@@ -75,12 +75,12 @@ widgets:
       menu_labels:
         shutdown: "<span style='color: #f38ba8'>\uf011</span>⠀Shutdown"
         restart: "<span style='color: #94e2d5; font-weight:bold'>\udb81\udf09</span>⠀Restart"
-        logout: "<span style='color: #f9e2af'>\udb80\udf43</span>⠀Logout"
+        logout: "<span style='color: #f9e2af'>\uf08b</span>⠀Logout"
         lock: "<span style='color: #fab387'>\uf023</span>⠀Lock"
         sleep: "<span style='color: #b4befe; font-weight:bold'>\udb82\udd04</span>⠀Sleep"
         system: "<span style='color: rgb(93, 114, 135)'>\uf013</span>⠀System Settings"
         about: "<span style='color: #89b4fa'>\uf449</span>⠀About This PC"
-        task_manager: "<span style='color: #f38ba8'>\uf437</span>⠀Task Manager"
+        task_manager: "<span style='color: #f38ba8'>\uf200</span>⠀Task Manager"
       label_shadow:
         enabled: false
         color: 'black'
@@ -153,7 +153,7 @@ widgets:
   ai_chat:
     type: 'yasb.ai_chat.AiChatWidget'
     options:
-      label: "<span>\udb81\ude74</span>"
+      label: "<img src='C:\\Users\\Nugra\\.config\\yasb\\images\\ai-chat.png'/>"
       chat:
         blur: true
         round_corners: true
@@ -191,7 +191,7 @@ widgets:
   traffic:
     type: 'yasb.traffic.TrafficWidget'
     options:
-      label: "<span class='download'>\uf175</span>{download_speed}⠀<span class='upload'>\uf176</span>{upload_speed}"
+      label: "<span class='download'>⇣</span>{download_speed}⠀<span class='upload'>⇡</span>{upload_speed}"
       update_interval: 1000
       menu:
         blur: true
@@ -244,8 +244,8 @@ widgets:
   clock:
     type: 'yasb.clock.ClockWidget'
     options:
-      label: '<span>{icon}</span> {%H:%M %p}'
-      label_alt: "<span>\uf073</span> {%A, %d %B %Y %H:%M:%S}"
+      label: '{%H:%M %p}'
+      label_alt: '{%A, %d %B %Y %H:%M:%S}'
       timezones: []
       callbacks:
         on_right: 'toggle_label'
@@ -255,7 +255,7 @@ widgets:
         round_corners: True
         round_corners_type: 'normal'
         border_color: 'System'
-        alignment: 'center'
+        alignment: 'right'
         direction: 'down'
         distance: 6
         country_code: 'ID'
@@ -273,50 +273,123 @@ widgets:
         clock_10: "\udb85\udc48"
         clock_11: "\udb85\udc49"
         clock_12: "\udb85\udc4a"
+        clock_00: "\udb85\udc4a"
+      tooltip: False
   komorebi_workspaces:
     type: 'komorebi.workspaces.WorkspaceWidget'
     options:
-      label_offline: "\u23fc Offline"
-      label_workspace_btn: ''
-      label_workspace_active_btn: ''
-      label_workspace_populated_btn: ''
+      label_offline: 'Komorebi Offline'
+      label_workspace_btn: "\udb81\udc3d"
+      label_workspace_active_btn: "\udb81\udc3e"
+      label_workspace_populated_btn: "\udb81\udc3e"
       label_default_name: ''
       label_zero_index: false
-      hide_empty_workspaces: true
-      hide_if_offline: true
+      hide_empty_workspaces: false
+      hide_if_offline: false
       animation: true
+      toggle_workspace_layer:
+        enabled: false
+        tiling_label: 'Tiling'
+        floating_label: 'Floating'
+      app_icons:
+        enabled_populated: false
+        enabled_active: false
+        size: 12
+        max_icons: 0
+        hide_label: false
+        hide_duplicates: false
+        hide_floating: false
       container_padding:
         top: 0
         left: 8
         bottom: 0
         right: 8
+      btn_shadow:
+        enabled: false
+        color: 'black'
+        radius: 3
+        offset: [1, 1]
   komorebi_active_layout:
     type: 'komorebi.active_layout.ActiveLayoutWidget'
     options:
-      hide_if_offline: false
-      label: '{icon}'
-      layouts: ['bsp', 'columns', 'rows', 'grid', 'vertical_stack', 'horizontal_stack', 'ultrawide_vertical_stack']
+      hide_if_offline: true
+      label: '<span>{icon}</span>'
+      layouts:
+        [
+          'bsp',
+          'columns',
+          'rows',
+          'grid',
+          'scrolling',
+          'vertical_stack',
+          'horizontal_stack',
+          'ultrawide_vertical_stack',
+          'right_main_vertical_stack'
+        ]
       layout_icons:
-        bsp: "[\\\\]"
-        columns: '[||]'
-        rows: '[==]'
-        grid: '[G]'
-        vertical_stack: '[V]='
-        horizontal_stack: '[H]='
-        ultrawide_vertical_stack: '||='
-        monocle: '[M]'
-        maximised: '[X]'
-        floating: '><>'
-        paused: '[P]'
+        bsp: "\uebeb"
+        columns: "\uebf7"
+        rows: "\uec01"
+        grid: "\udb81\udf58"
+        scrolling: "\uebf7"
+        vertical_stack: "\uebee"
+        horizontal_stack: "\uebf0"
+        ultrawide_vertical_stack: "\uebee"
+        right_main_vertical_stack: "\uebf1"
+        monocle: "\uf06f"
+        maximized: "\uf06f"
+        floating: "\uf2d2"
+        paused: "\udb83\udf89"
+        tiling: "\udb81\ude40"
       callbacks:
-        on_left: 'next_layout'
-        on_middle: 'toggle_monocle'
+        on_left: 'toggle_layout_menu'
+        on_middle: 'next_layout'
         on_right: 'prev_layout'
+      layout_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: 'normal'
+        border_color: 'System'
+        alignment: 'left'
+        direction: 'down'
+        offset_top: 6
+        offset_left: 0
+        show_layout_icons: true
       container_padding:
         top: 0
         left: 8
         bottom: 0
         right: 8
+      label_shadow:
+        enabled: false
+        color: 'black'
+        radius: 3
+        offset: [1, 1]
+  komorebi_control:
+    type: 'komorebi.control.KomorebiControlWidget'
+    options:
+      label: 'KOMOREBI'
+      icons:
+        start: "\uead3"
+        stop: "\uead7"
+        reload: "\uead2"
+      run_ahk: false
+      run_whkd: true
+      show_version: true
+      komorebi_menu:
+        blur: True
+        round_corners: True
+        round_corners_type: 'normal'
+        border_color: 'System'
+        alignment: 'center'
+        direction: 'down'
+        offset_top: 6
+        offset_left: 0
+      label_shadow:
+        enabled: false
+        color: 'black'
+        radius: 3
+        offset: [1, 1]
   glazewm_workspaces:
     type: 'glazewm.workspaces.GlazewmWorkspacesWidget'
     options:
@@ -332,7 +405,7 @@ widgets:
     type: 'yasb.weather.WeatherWidget'
     options:
       label: '<span>{icon}</span> {temp}'
-      label_alt: '{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}'
+      label_alt: '<span>{icon}</span> {location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}'
       api_key: 'fb9e3c6b925c45b48ea164419232711'
       show_alerts: true
       update_interval: 600
@@ -359,7 +432,7 @@ widgets:
         round_corners: True
         round_corners_type: 'normal'
         border_color: 'System'
-        alignment: 'right'
+        alignment: 'center'
         direction: 'down'
         distance: 6
         icon_size: 64
@@ -376,6 +449,13 @@ widgets:
         - "\uf028"
       callbacks:
         on_right: 'exec cmd.exe /c start ms-settings:sound'
+      audio_menu:
+        blur: True
+        round_corners: True
+        round_corners_type: 'normal'
+        border_color: 'System'
+        alignment: 'center'
+        direction: 'down'
   battery:
     type: 'yasb.battery.BatteryWidget'
     options:
@@ -425,7 +505,7 @@ widgets:
     type: 'yasb.wifi.WifiWidget'
     options:
       label: '{wifi_icon}'
-      label_alt: '{wifi_name} {wifi_strength}%'
+      label_alt: '<span style="color: white">{wifi_name}</span>⠀{wifi_icon}'
       update_interval: 5000
       callbacks:
         on_left: 'toggle_menu'
@@ -555,12 +635,15 @@ widgets:
         right: 8
       label: '{data}'
       app_list:
-        - { icon: "\uf0f3", launch: 'notification_center' } # launch notification center
-        - { icon: "\uf002", launch: 'search' } # launch search
-        - { icon: "\uf200", launch: 'cmd /c Taskmgr' }
-        - { icon: "\uf121", launch: 'wt' } # launch terminal
-        - { icon: "\udb80\ude54", launch: 'wt "C:\Program Files (x86)\Steam\steam.exe" steam://rungameid/431960' }
-        - { icon: "\uf463", launch: 'C:\Program Files\MiniMeters\MiniMeters.exe' }
+        - { icon: "<span class='notification'>\uf0f3</span>", launch: 'notification_center' } # launch notification center
+        - { icon: "<span>\uf002</span>", launch: 'search' } # launch search
+        - { icon: "<span>\uf200</span>", launch: 'cmd /c Taskmgr' }
+        - { icon: "<span>\uf121</span>", launch: 'wt' } # launch terminal
+        - { icon: "<span>\udb80\ude54</span>", launch: 'wt "C:\Program Files (x86)\Steam\steam.exe" steam://rungameid/431960' }
+        - {
+            icon: "<span style='font-size: 18px; font-weight:400; color: #89b4fa'>\ue234</span>",
+            launch: 'C:\Program Files\MiniMeters\MiniMeters.exe'
+          }
   wallpaper:
     type: 'yasb.applications.ApplicationsWidget'
     options:
@@ -597,7 +680,7 @@ widgets:
       token: ''
       max_notification: 30
       notification_dot:
-        enabled: True
+        enabled: false
         corner: 'bottom_left' # Can be "top_left", "top_right", "bottom_left", "bottom_right"
         color: 'red' # Can be hex color or string
         margin: [1, 1] # x and y margin for the dot
@@ -681,7 +764,7 @@ widgets:
     type: 'yasb.grouper.GrouperWidget'
     options:
       class_name: 'grouped-widgets'
-      widgets: ['discord', 'steam', 'twitter', 'spotify', 'vscode', 'github', 'ai_chat']
+      widgets: ['gta_v', 'discord', 'steam', 'twitter', 'spotify', 'vscode', 'github']
       container_padding:
         top: 0
         left: 2
@@ -698,7 +781,7 @@ widgets:
   discord:
     type: 'yasb.custom.CustomWidget'
     options:
-      label: "<span>\uf1ff</span>"
+      label: "<img src='C:\\Users\\Nugra\\.config\\yasb\\images\\discord.png'/>"
       label_alt: "<span>\uf1ff</span>"
       class_name: 'discord-widget'
       callbacks:
@@ -711,3 +794,20 @@ widgets:
       class_name: 'steam-widget'
       callbacks:
         on_left: 'exec "C:\\Program Files (x86)\\Steam\\Steam.exe"'
+  separator:
+    type: 'yasb.custom.CustomWidget'
+    options:
+      label: '│'
+      label_alt: '│'
+      class_name: 'separator-widget'
+      callbacks:
+        on_left: 'do_nothing'
+        on_right: 'do_nothing'
+  gta_v:
+    type: 'yasb.custom.CustomWidget'
+    options:
+      label: "<img src='C:\\Users\\Nugra\\.config\\yasb\\images\\gta_v.png'/>"
+      label_alt: "<span>\uf1ac</span>"
+      class_name: 'gta-widget'
+      callbacks:
+        on_left: 'exec "C:\Program Files (x86)\Steam\steam.exe" steam://rungameid/3240220'

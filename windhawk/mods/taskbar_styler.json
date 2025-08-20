@@ -1,6 +1,6 @@
 {
 	"controlStyles[0].target": "Taskbar.TaskbarFrame#TaskbarFrame",
-	"controlStyles[0].styles[0]": "MaxWidth=1050",
+	"controlStyles[0].styles[0]": "MaxWidth=2050",
 	"controlStyles[0].styles[1]": "HorizontalAlignment=Center",
 	"controlStyles[0].styles[2]": "Width=Auto",
 	"controlStyles[0].styles[3]": "MinWidth=Auto",

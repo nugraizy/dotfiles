@@ -559,10 +559,11 @@
 	min-width: 375px;
 }
 .wifi-menu .progress-bar {
-	max-height: 2px;
+	max-height: 6px;
 }
 .wifi-menu .progress-bar::chunk {
-	background-color: #4cc2ff;
+	background-color: var(--mauve);
+	border-radius: 6px;
 }
 .wifi-menu .header,
 .wifi-menu .error-message {
@@ -771,16 +772,19 @@
 }
 .ai-chat-popup .chat-content .empty-chat .greeting,
 .ai-chat-popup .chat-content .empty-chat .message {
-	color: rgba(255, 255, 255, 0.8);
+	color: #e8014f;
 	font-family: 'Segoe UI';
 	font-size: 48px;
 	font-weight: 600;
+	font-style: italic;
 }
 .ai-chat-popup .chat-content .empty-chat .message {
 	color: rgba(255, 255, 255, 0.4);
 	font-size: 24px;
 	padding-top: 8px;
+	font-style: normal;
 }
+
 .ai-chat-popup .chat-content .user-message,
 .ai-chat-popup .chat-content .assistant-message {
 	color: #ffffff;
@@ -807,7 +811,7 @@
 .ai-chat-popup .chat-footer .chat-input {
 	background-color: rgba(24, 25, 27, 0.6);
 	border: 2px solid #2d2d2d;
-	border-radius: 4px;
+	border-radius: 16px;
 	padding: 0 8px;
 	font-family: 'Segoe UI';
 	font-size: 14px;
@@ -817,7 +821,7 @@
 	min-height: 28px;
 }
 .ai-chat-popup .chat-footer .chat-input:focus {
-	border-color: #0078d7;
+	border-color: var(--green);
 }
 .ai-chat-popup .chat-footer .clear-button,
 .ai-chat-popup .chat-footer .send-button,
@@ -834,6 +838,15 @@
 	border: none;
 	font-family: 'JetBrainsMono NFP';
 }
+
+.ai-chat-popup .chat-footer .clear-button {
+	color: var(--red);
+}
+
+.ai-chat-popup .chat-footer .send-button {
+	color: var(--blue);
+}
+
 .ai-chat-popup .chat-footer .stop-button {
 	background-color: #0078d7;
 }
@@ -847,4 +860,55 @@
 .ai-chat-popup .chat-footer .stop-button:disabled {
 	background-color: #2d2d2d;
 	color: #818181;
+}
+
+.komorebi-layout-menu {
+	background-color: var(--blurs);
+}
+.komorebi-layout-menu .menu-item {
+	padding: 8px 16px;
+	font-size: 12px;
+	color: #cdd6f4;
+	font-weight: 600;
+}
+.komorebi-layout-menu .menu-item-icon {
+	color: #cdd6f4;
+	font-size: 16px;
+}
+.komorebi-layout-menu .menu-item-text {
+	font-family: 'Segoe UI';
+	padding-left: 4px;
+	font-size: 12px;
+}
+.komorebi-layout-menu .menu-item:hover {
+	background-color: rgba(128, 130, 158, 0.15);
+	color: #fff;
+}
+.komorebi-layout-menu .separator {
+	max-height: 1px;
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.komorebi-control-menu {
+	background-color: rgba(17, 17, 27, 0.2);
+}
+.komorebi-control-menu .button {
+	color: rgba(162, 177, 199, 0.4);
+	padding: 8px 16px;
+	font-size: 32px;
+	border-radius: 8px;
+	background-color: rgba(255, 255, 255, 0.04);
+}
+.komorebi-control-menu .button.active {
+	color: rgb(228, 228, 228);
+	background-color: rgba(255, 255, 255, 0.04);
+}
+.komorebi-control-menu .button:disabled,
+.komorebi-control-menu .button.active:disabled {
+	background-color: rgba(255, 255, 255, 0.01);
+	color: rgba(255, 255, 255, 0.2);
+}
+.komorebi-control-menu .footer .text {
+	font-size: 12px;
+	color: #6c7086;
 }
